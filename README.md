@@ -55,10 +55,11 @@ Here are some recommendations to help you deploy the code in this repository:<br
      ```
      
 # Project Structure
+
 pj-eks/
 ├── analytics/
 │   ├── init.py                         # Initializes the application and sets up configurations
-│   ├── app.py                          # Main application 
+│   ├── app.py                          # Main application
 │   ├── config.py                       # Configuration settings for the application
 │   ├── requirements.txt                # Lists dependencies required for the application
 ├── db/
@@ -68,12 +69,12 @@ pj-eks/
 ├── deployment/
 │   ├── configmap.yaml                  # Kubernetes ConfigMap definition for storing configuration data
 │   ├── coworking.yaml                  # Kubernetes deployment for the application
-│   ├── postgresql-deployment.yaml      # Kubernetes deployment for the  database
+│   ├── postgresql-deployment.yaml      # Kubernetes deployment for the database
 │   ├── postgresql-service.yaml         # Kubernetes Service definition for PostgreSQL access
 │   ├── pv.yaml                         # Persistent Volume definition for database storage
 │   ├── pvc.yaml                        # Persistent Volume Claim definition for database storage
 ├── README.md                           # Instructions for the project
 ├── Dockerfile                          # Dockerfile to containerize the application
 ├── buildspec.yml                       # Build specification for AWS CodeBuild
-├── LICENSE.txt                         
-├── CODEOWNERS                          
+├── LICENSE.txt                         # Project license
+├── CODEOWNERS                          # Defines ownership and responsibilities for the codebase
