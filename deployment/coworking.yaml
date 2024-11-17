@@ -44,10 +44,27 @@ spec:
             port: 5153
           initialDelaySeconds: 5
           timeoutSeconds: 5
-        envFrom:
-        - configMapRef:
-            name: pjconfigmap
         env:
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: pjconfigmap
+              key: DB_NAME
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: pjconfigmap
+              key: DB_USER
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: pjconfigmap
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: pjconfigmap
+              key: DB_PORT
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
