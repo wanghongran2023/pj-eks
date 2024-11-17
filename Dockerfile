@@ -10,4 +10,4 @@ COPY ./analytics/app.py .
 
 EXPOSE 5153
 
-CMD ["python", "app.py"]
+CMD ["cat", "app.py"]
