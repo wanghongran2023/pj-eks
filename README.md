@@ -11,10 +11,8 @@ Here are some recommendations to help you deploy the code in this repository:<br
    - Create an AWS EKS cluster and configure a node group.
    - Ensure the node group uses the correct image type.
    - connect kubectl to the EKS using :
-     ```bash
-        aws eks --region us-east-1 update-kubeconfig --name <cluster name>
-        kubectl config current-context
-     ```
+      - aws eks --region us-east-1 update-kubeconfig --name <cluster name>
+      - kubectl config current-context
 
 2. **Create a CodeBuild Project**
    - Create a CodeBuild project and connect it to the GitHub repository containing the application code.
@@ -27,32 +25,24 @@ Here are some recommendations to help you deploy the code in this repository:<br
 
 5. **Deploy PersistentVolumeClaim (PVC) and PersistentVolume (PV)**
    - Run the following commands to apply the PVC and PV configuration files:
-     ```bash
-     kubectl apply -f ./deployment/pvc.yaml
-     kubectl apply -f ./deployment/pv.yaml
-     ```
+      - kubectl apply -f ./deployment/pvc.yaml
+      - kubectl apply -f ./deployment/pv.yaml
 
 6. **Deploy PostgreSQL**
    - Deploy the PostgreSQL resources using the following commands:
-     ```bash
-     kubectl apply -f ./deployment/postgressql-deployment.yaml
-     kubectl apply -f ./deployment/postgressql-service.yaml
-     ```
+      - kubectl apply -f ./deployment/postgressql-deployment.yaml
+      - kubectl apply -f ./deployment/postgressql-service.yaml
 
 7. **Execute SQL Scripts in the PostgreSQL Pod**
    - Once the PostgreSQL Pod is ready, connect to it and execute the SQL scripts located in the db folder.
 
 8. **Deploy ConfigMap**
    - Apply the ConfigMap configuration using the following command:
-     ```bash
-     kubectl apply -f ./deployment/configmap.yaml
-     ```
+      - kubectl apply -f ./deployment/configmap.yaml
 
 9. **Deploy the Coworking Application**
    - Deploy the application by running:
-     ```bash
-     kubectl apply -f ./deployment/coworking.yaml
-     ```
+      - kubectl apply -f ./deployment/coworking.yaml
      
 # Project Structure
 
