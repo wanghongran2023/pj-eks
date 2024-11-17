@@ -3,8 +3,7 @@ kind: Service
 metadata:
   name: coworking
 spec:
-  # A local environment doesn't generally have a LoadBalancer, so we use NodePort instead.
-  type: NodePort
+  type: LoadBalancer
   selector:
     service: coworking
   ports:
@@ -41,17 +40,34 @@ spec:
           timeoutSeconds: 2
         readinessProbe:
           httpGet:
-            path: "/readiness_check"
+            path: /readiness_check
             port: 5153
           initialDelaySeconds: 5
           timeoutSeconds: 5
-        envFrom:
-        - configMapRef:
-            name: pj_configmap
         env:
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: pjconfigmap
+              key: DB_NAME
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: pjconfigmap
+              key: DB_USER
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: pjconfigmap
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: pjconfigmap
+              key: DB_PORT
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: pj_secret
+              name: pjsecret
               key: DB_PASSWORD
       restartPolicy: Always

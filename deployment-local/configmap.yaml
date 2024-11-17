@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pj_configmap
+  name: pjconfigmap
 data:
   DB_NAME: mydatabase
   DB_USER: myuser
@@ -11,7 +11,7 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: pj_secret
+  name: pjsecret
 type: Opaque
 data:
-  DB_PASSWORD: "mypassword"
+  DB_PASSWORD: bXlwYXNzd29yZA==
