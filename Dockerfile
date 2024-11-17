@@ -1,12 +1,9 @@
-FROM --platform=linux/arm64 python:3.12-slim
+FROM --platform=linux/amd64 python:3.12-slim
 WORKDIR /app
 
 COPY ./analytics/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
-
-ENV DB_USERNAME=myuser
-ENV DB_PASSWORD=mypassword
 
 COPY ./analytics/config.py .
 COPY ./analytics/app.py .
