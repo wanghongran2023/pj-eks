@@ -32,7 +32,7 @@ spec:
       containers:
       - name: coworking
         image: 176728323268.dkr.ecr.us-east-1.amazonaws.com/pj-eks:image-eks
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /health_check
